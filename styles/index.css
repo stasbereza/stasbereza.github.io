@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: black;
+}
+h1 {
+    /* position: absolute;
+    top: 50%; */
+    font-family: 'Open Sans', sans-serif;
+    font-size: 48px;
+    color: gold;
+    text-align: center;
+    line-height: 960px; 
+}
