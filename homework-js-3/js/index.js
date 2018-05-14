@@ -1,22 +1,30 @@
 'use strict';
 
 const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
+
 const login = 'Stanislav';
 const min = 4;
 const max = 16;
 let message = '';
 
 const addLogin = (logins, login) => {
-    if (validLogin) {
-        if (checkLogin) {
-            return message = `Логин ${login} уже используется!`;
-        } else {
-            logins.push(login);
-            return message = `Логин ${login} успешно добавлен!`;
-        }
+    const isValidLogin = checkLoginValidity(login);
+    console.log(`Does login include ${min} to ${max} symbols? ${isValidLogin}`);
+
+    if (!isValidLogin) {
+        return message = `Error! Login must include ${min} to ${max} symbols.`;
     }
-    return message = `Ошибка! Логин должен быть от ${min} до ${max} символов`;
-}
+
+    const isExistingiLogin = checkIfLoginExists(logins, login);
+    console.log(`Is ${login} in the array [logins]? ${isExistingiLogin}`);
+
+    if (isExistingiLogin) {
+        return message = `Login ${login} is already in use!`;
+    }
+
+    logins.push(login);
+    return message = `Login ${login} was successfully added!`;
+};
 
 const checkLoginValidity = login => {
     const inRange = login.length >= min && login.length <= max;
@@ -26,7 +34,7 @@ const checkLoginValidity = login => {
         false;
 
     return validityLogin;
-}
+};
 
 const checkIfLoginExists = (logins, login) => {
     let inLogins;
@@ -40,12 +48,6 @@ const checkIfLoginExists = (logins, login) => {
     }
     return inLogins;
 }
-
-const validLogin = checkLoginValidity(login);
-console.log(`Логин состоит от ${min} до ${max} символов? ${validLogin}`);
-
-const checkLogin = checkIfLoginExists(logins, login);
-console.log(`${login} есть в массиве logins? ${checkLogin}`);
 
 addLogin(logins, login);
 console.log(message);
