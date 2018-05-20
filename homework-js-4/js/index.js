@@ -14,39 +14,14 @@ function Cashier({
   this.changeAmount = changeAmount;
 
   this.countTotalPrice = function(order) {
-    // Return an Array of productsInOrder
-    const productsInOrder = Object.keys(order);
-    console.log("productsInOrder: ", productsInOrder);
-
-    // Create an Array of productPriceInOrder
-    let productPriceInOrder = [];
-    for (const product in this.products) {
-      if (productsInOrder.includes(product)) {
-        let productPrice = this.products[product];
-        productPriceInOrder.push(productPrice);
+    const orderKeys = Object.keys(order);
+    
+    for(let i = 0, max = orderKeys.length; i < max; i += 1) {
+      if(this.products[orderKeys[i]] !== undefined) {
+        this.totalPrice += this.products[orderKeys[i]] * order[orderKeys[i]];
       }
     }
-    console.log("productPriceInOrder: ", productPriceInOrder);
-
-    // Return an Array of productNumberInOrder
-    const productNumberInOrder = Object.values(order);
-    console.log("productNumberInOrder: ", productNumberInOrder);
-
-    // Create an Array of totalproductPriceInOrder
-    let totalProductPrice;
-    let totalProductPriceinOrder = [];
-    for (let i = 0, max = productPriceInOrder.length; i < max; i += 1) {
-      totalProductPrice = productPriceInOrder[i] * productNumberInOrder[i];
-      totalProductPriceinOrder.push(totalProductPrice);
-      console.log(`${productsInOrder[i]}: ${totalProductPrice}`);
-    }
-    console.log("totalProductPriceinOrder", totalProductPriceinOrder);
-
-    // Count totalPrice of order
-    for (const totalProductPrice of totalProductPriceinOrder) {
-      this.totalPrice += totalProductPrice;
-    }
-
+    
     return this.totalPrice;
   };
 
