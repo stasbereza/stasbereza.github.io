@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homework_5_JS</title>
+</head>
+
+<body>
+    <h1>Модуль 5 - Домашнее задание</h1>
+
+    <h2>Создайте менеджер управления данными аккаунтов пользователей соцсети SocialBook.</h2>
+
+    <h3>ОБЯЗАТЕЛЬНО ПРИ ВЫПОЛНЕНИИ:</h3>
+    <ul>
+        <li>написать функцию-конструктор создающую объект со свойствами и методами</li>
+        <li>при работе с коллекциями данных использовать функциональные методы массивов, никаких for и т. п.</li>
+    </ul>
+
+    <h4>Для создания объекта используйте функцию-конструктор, принимающую следующие параметры:</h4>
+    <ul>
+        <li>users - массив пользователей. Каждый пользователь это объект с полями:</li>
+        <ul>
+            <li>id - уникальный идентификатор;</li>
+            <li>login - почта;</li>
+            <li>password - пароль;</li>
+            <li>isActive - статус активности;</li>
+        </ul>
+        <li>posts - объект с ключами равными id пользователя соцсети SocialBook. Значениями свойств являются массивы постов пользователя.
+            Каждый пост состоит из:</li>
+        <ul>
+            <li>id - уникальный идентификатор;</li>
+            <li>text - текст поста;</li>
+            <li> likes - количество лайков поста.</li>
+        </ul>
+    </ul>
+    <p>function SocialBook (users = [], posts = {}) { ... }</p>
+    <p>Используйте следующий массив пользователей при создании экземпляра SocialBook:</p>
+    <p>const initialUsers = [ { id: "-s19a6hqce", login: "mangozedog@mail.com", password: "qwe123zv", isActive: true }, { id:
+        "-qkpzenjxe", login: "polysweet@skynet.ze", password: "123zxc78", isActive: true }, { id: "-e51cpd4di", login: "ajax2k@change.ua",
+        password: "ert234qw", isActive: false } ];
+    </p>
+    <p>Используйте следующий объект постов пользователей при создании экземпляра SocialBook:</p>
+    <p>const initialPosts = { "-s19a6hqce": [ { id: "-5sgljaskg", text: "post #1", likes: 3 }, { id: "-199hb6igr", text: "post
+        #2", likes: 5 }, { id: "-hy0eyw5qo", text: "post #3", likes: 13 } ], "-qkpzenjxe": [ { id: "-5tu69g5rf", text: "post
+        #1", likes: 8 }, { id: "-bje766393", text: "post #2", likes: 15 } ], "-e51cpd4di": [ { id: "-9y6nkmlj4", text: "post
+        #1", likes: 18 }, { id: "-i03pbhy3s", text: "post #2", likes: 45 } ], };
+    </p>
+    <p>Для создания уникального идентификатора для поля id, используйте вспомогательную функцию getId(), возвращающую уникальную
+        строку.
+    </p>
+    <p>К примеру: const user = { id: getId(), name: 'Mango' };</p>
+    <p>const getId = () => "-" + Math.random().toString(36).substr(2, 9);</p>
+    <p>Добавьте в SocialBook следующие методы для работы с пользователями:</p>
+    <ul>
+        <li>getAllUsers() - возвращает массив всех пользователей;</li>
+        <li>getUserByLogin(login) - ищет и возвращает объект пользователя с совпадающим логином;</li>
+        <li>getUserStatus(userId) - ищет пользователя по id и возвращает 'active', если isActive true, в противном случае возвращает
+            'inactive';
+        </li>
+        <li>addUser(user) - принимает объект user с полями email и password и добавляет ему поля id(используя функцию getId)
+            и isActive (false). Затем добавляет пользователя в свойство users самого экземпляра;</li>
+        <li>removeUserById(userId) - удаляет пользователя из массива пользователей по полю id;</li>
+        <li>getUsersCount() - возвращает общее количество пользователей.</li>
+    </ul>
+    <p>***ДОПОЛНИТЕЛЬНОЕ ЗАДАНИЕ - выполнять по желанию***</p>
+    <p>Добавьте в SocialBook следующие методы для работы с постами пользователей:</p>
+    <ul>
+        <li>getUserPosts(userId) - возвращает массив постов пользователя с id равным userId;</li>
+        <li>addPost(userId, post) - добавляет post в поле posts объекта socialBook по ключу userId;</li>
+        <li>removePost(userId, postId) - удаляет post с id равным postId из поля posts объекта socialBook по ключу userId;</li>
+        <li>getAllLikes(userId) - возвращает сумму всех полей likes постов пользователя с id равным userId;</li>
+        <li>addPostLike(userId, postId) - увеличивает значение поля likes на 1 у поста с id равным postId, для пользователя с
+            id равным userId;</li>
+        <li>getPostsCount(userId) - возвращает общее количество постов пользователя с id равным userId.</li>
+    </ul>
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>
