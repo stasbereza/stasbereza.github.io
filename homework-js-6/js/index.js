@@ -12,18 +12,18 @@ class Hamburger {
   }
   // adding non-included topping
   addTopping(topping) {
-    const addingTopping = !this.toppings.includes(topping) ?
-      this.toppings.push(topping) :
-      this.toppings;
-    return this;
+    !this.toppings.includes(topping) ? this.toppings.push(topping) : this.toppings;
+
+    return this.toppings;
   }
   // removing included topping
   removeTopping(topping) {
     const removingTopping = this.toppings.includes(topping) ?
       this.toppings.filter(includedTopping => includedTopping !== topping) :
       this.toppings;
-    this.toppings = removingTopping;
-    return this;
+    this.toppings = [...removingTopping];
+
+    return this.toppings
   }
   // get the array of toppings
   getToppings() {
@@ -106,13 +106,13 @@ const hamburger = new Hamburger({
 });
 
 // adding topping
-hamburger.addTopping(Hamburger.TOPPING_SPICE);
+console.log('Added topping: ', hamburger.addTopping(Hamburger.TOPPING_SPICE));
 // how much calories are there?
 console.log('Calories: ', hamburger.calculateCalories());
 // how much does it cost?
 console.log('Price: ', hamburger.calculatePrice());
 // adding sauce
-console.log('Hamburger with added sauce: ', hamburger.addTopping(Hamburger.TOPPING_SAUCE));
+console.log('Added sauce: ', hamburger.addTopping(Hamburger.TOPPING_SAUCE));
 // how much does it cost now?
 console.log('Price with sauce: ', hamburger.calculatePrice());
 // is this hamburger large?
