@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
   imageGallery.innerHTML += previewImages;
 
   const previewImgs = imageGallery.querySelectorAll(".preview-img");
+  const previewActiveImg = previewImgs[0].classList.add("preview-img-active");
 
   imageGallery.addEventListener("click", onImageGalleryClick);
 
