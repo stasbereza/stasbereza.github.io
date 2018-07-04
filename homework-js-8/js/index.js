@@ -58,9 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
   imageGallery.addEventListener("click", onImageGalleryClick);
 
   function onImageGalleryClick({ target }) {
-    const nodeName = target.nodeName;
+    const hasClass = target.classList.contains("preview-img");
 
-    if (nodeName !== "IMG") return;
+    if (!hasClass) return;
 
     const activeFullviewImage = imageGallery.querySelector(".fullview-img");
 
