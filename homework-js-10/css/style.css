@@ -1,0 +1,61 @@
+.container {
+  padding: 0.8rem;
+}
+
+.row {
+  margin-bottom: 0;
+}
+
+.row .col {
+  padding: 0 0.4rem;
+}
+
+.btn {
+  text-transform: uppercase;
+}
+
+.input-field {
+  margin-bottom: 0;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 261px;
+  padding: 0.6rem 0.4rem;
+}
+
+.panel img {
+  width: 128px;
+  flex-grow: 1;
+}
+
+table {
+  margin: 0.4rem 0;
+}
+
+table th {
+  font-weight: bold;
+}
+
+.preloader-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 25%;
+}
+
+.modal {
+  max-height: 50%;
+  width: 25%;
+}
+
+.modal h4 {
+  color: #2bbbad;
+}
+
+.modal p {
+  font-size: 20px;
+  line-height: 1.5;
+}

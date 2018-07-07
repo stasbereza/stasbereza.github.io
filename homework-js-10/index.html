@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Homework_10_JS</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col s3">
+                <div class="panel z-depth-2">
+                    <img src="https://cdn3.iconfinder.com/data/icons/49handdrawing/256x256/users.png" alt="users">
+                    <button class="btn btn-get-1 waves-effect waves-light js-get-users" type="submit" name="action">get users
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+            <div class="col s3">
+                <div class="panel z-depth-2 center-align">
+                    <div class="input-field col s12">
+                        <input id="user_get_id" type="text" class="validate js-input-get-id">
+                        <label for="user_get_id">Enter user's ID</label>
+                    </div>
+                    <button class="btn btn-get-2 waves-effect waves-light js-get-user" type="submit" name="action">get user
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+            <div class="col s2">
+                <div class="panel z-depth-2 center-align">
+                    <div class="input-field col s12">
+                        <input id="user_add_name" type="text" class="validate js-input-add-name">
+                        <label for="user_add_name">Enter user's name</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="user_add_age" type="text" class="validate js-input-add-age">
+                        <label for="user_add_age">Enter user's age</label>
+                    </div>
+                    <button class="btn btn-add waves-effect waves-light js-add-user" type="submit" name="action">add user
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+            <div class="col s2">
+                <div class="panel z-depth-2 center-align">
+                    <div class="input-field col s12">
+                        <input id="user_del_id" type="text" class="validate js-input-del-id">
+                        <label for="user_del_id">Enter user's ID</label>
+                    </div>
+                    <button class="btn btn-del waves-effect waves-light js-del-user" type="submit" name="action">delete user
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+            <div class="col s2">
+                <div class="panel z-depth-2 center-align">
+                    <div class="input-field col s12">
+                        <input id="user_update_id" type="text" class="validate js-input-update-id">
+                        <label for="user_update_id">Enter user's ID</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="user_update_name" type="text" class="validate js-input-update-name">
+                        <label for="user_update_name">Enter user's name</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="user_update_age" type="text" class="validate js-input-update-age">
+                        <label for="user_update_age">Enter user's age</label>
+                    </div>
+                    <button class="btn waves-effect waves-light js-update-user" type="submit" name="action">update user
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s3">
+                <div class="z-depth-2 js-column-1"></div>
+                <div class="preloader-wrapper small">
+                    <div class="spinner-layer spinner-green-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s3">
+                <div class="z-depth-2 js-column-2"></div>
+            </div>
+        </div>
+        <div id="modal1" class="modal">
+            <div class="modal-content"></div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn">ok</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
