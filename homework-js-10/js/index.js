@@ -1,54 +1,53 @@
 "use strict";
 
-document.addEventListener('DOMContentLoaded', () => {
-  const btnGetUsers = document.querySelector('.js-get-users');
-  const btnGetUser = document.querySelector('.js-get-user');
-  const btnAddUser = document.querySelector('.js-add-user');
-  const btnDelUser = document.querySelector('.js-del-user');
-  const btnUpdateUser = document.querySelector('.js-update-user');
+document.addEventListener("DOMContentLoaded", () => {
+  const btnGetUsers = document.querySelector(".js-get-users");
+  const btnGetUser = document.querySelector(".js-get-user");
+  const btnAddUser = document.querySelector(".js-add-user");
+  const btnDelUser = document.querySelector(".js-del-user");
+  const btnUpdateUser = document.querySelector(".js-update-user");
 
-  const columnOne = document.querySelector('.js-column-1');
-  const columnTwo = document.querySelector('.js-column-2');
+  const columnOne = document.querySelector(".js-column-1");
+  const columnTwo = document.querySelector(".js-column-2");
 
-  const inputIdGet = document.querySelector('.js-input-get-id');
-  const inputNameAdd = document.querySelector('.js-input-add-name');
-  const inputAgeAdd = document.querySelector('.js-input-add-age');
-  const inputIdDel = document.querySelector('.js-input-del-id');
-  const inputIdUpdate = document.querySelector('.js-input-update-id');
-  const inputNameUpdate = document.querySelector('.js-input-update-name');
-  const inputAgeUpdate = document.querySelector('.js-input-update-age');
+  const inputIdGet = document.querySelector(".js-input-get-id");
+  const inputNameAdd = document.querySelector(".js-input-add-name");
+  const inputAgeAdd = document.querySelector(".js-input-add-age");
+  const inputIdDel = document.querySelector(".js-input-del-id");
+  const inputIdUpdate = document.querySelector(".js-input-update-id");
+  const inputNameUpdate = document.querySelector(".js-input-update-name");
+  const inputAgeUpdate = document.querySelector(".js-input-update-age");
 
-  const modal = document.querySelector('#modal1');
+  const modal = document.querySelector("#modal1");
   const modalContent = document.querySelector(".modal-content");
 
   const instances = M.Modal.init(modal, {
-    inDuration: 500,
+    inDuration: 500
   });
   const instance = M.Modal.getInstance(modal);
 
   const createModalContent = text => {
-    const modalContentMarkup =
-      `<h4>Notice:</h4>
+    const modalContentMarkup = `<h4>Notice:</h4>
        <p>${text}</p>
       `;
 
     return modalContentMarkup;
-  }
+  };
 
   const updateModalContent = markup => {
     modalContent.innerHTML = markup;
-  }
+  };
 
   const showModal = message => {
     const markup = createModalContent(message);
     updateModalContent(markup);
     instance.open();
-  }
+  };
 
   const preloader = document.querySelector(".preloader-wrapper");
-  const togglePreloader = () => preloader.classList.toggle('active');
+  const togglePreloader = () => preloader.classList.toggle("active");
 
-  // ======================== GET ALL USERS =============================  
+  // ======================== GET ALL USERS =============================
   const getAllUsers = () => {
     const url = "https://test-users-api.herokuapp.com/users";
 
@@ -56,19 +55,19 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(response => {
         if (response.ok) return response.json();
 
-        throw new Error('Error' + response.statusText);
+        throw new Error("Error" + response.statusText);
       })
       .then(data => data.data)
       .catch(error => {
         console.log(error);
-      })
-  }
+      });
+  };
 
   const createUserCards = userCards => {
     return userCards.reduce(
       (acc, user) =>
       acc +
-      `<table class="striped z-depth-3">
+      `<table data-id="${user.id}" class="responsive-table striped z-depth-3">
         <tr>
           <th>ID</th>
           <td>${user.id}</td>
@@ -84,12 +83,12 @@ document.addEventListener('DOMContentLoaded', () => {
        </table>  
       `,
       ""
-    )
+    );
   };
 
   const updateColumnOne = markup => {
-    columnOne.insertAdjacentHTML('beforeend', markup);
-  }
+    columnOne.insertAdjacentHTML("beforeend", markup);
+  };
 
   const handleGetUsersSubmit = event => {
     event.preventDefault();
@@ -99,10 +98,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const markup = createUserCards(users);
       updateColumnOne(markup);
       togglePreloader();
-    })
-  }
+    });
+  };
 
-  // ========================= GET USER BY ID ===========================   
+  // ========================= GET USER BY ID ===========================
   const getUserById = id => {
     const url = `https://test-users-api.herokuapp.com/users/${id}`;
 
@@ -110,17 +109,16 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(response => {
         if (response.ok) return response.json();
 
-        throw new Error('Error' + response.statusText);
+        throw new Error("Error" + response.statusText);
       })
       .then(data => data.data)
       .catch(error => {
         console.log(error);
-      })
-  }
+      });
+  };
 
   const createUserCard = user => {
-    const userCardMarkup =
-      `<table class="striped z-depth-3">
+    const userCardMarkup = `<table data-id="${user.id}" class="responsive-table striped z-depth-3">
         <tr>
           <th>ID</th>
           <td>${user.id}</td>
@@ -140,8 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const updateColumnTwo = markup => {
-    columnTwo.insertAdjacentHTML('beforeend', markup);
-  }
+    columnTwo.insertAdjacentHTML("beforeend", markup);
+  };
 
   const handleGetUserSubmit = event => {
     event.preventDefault();
@@ -163,37 +161,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     inputIdGet.value = "";
-  }
+  };
 
-  // ============================= ADD USER =============================  
+  // ============================= ADD USER =============================
   const addUser = (name, age) => {
     const url = `https://test-users-api.herokuapp.com/users`;
 
     const newUser = {
       name,
-      age,
+      age
     };
 
     const options = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
+        Accept: "application/json",
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify(newUser),
+      body: JSON.stringify(newUser)
     };
 
     return fetch(url, options)
       .then(response => {
         if (response.ok) return response.json();
 
-        throw new Error('Error' + response.statusText);
+        throw new Error("Error" + response.statusText);
       })
       .then(data => data.data)
       .catch(error => {
         console.log(error);
-      })
-  }
+      });
+  };
 
   const handleAddUserSubmit = event => {
     event.preventDefault();
@@ -203,9 +201,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (userName === "" || userAge === "") {
       showModal("All input fields must be filled out!");
+    } else if (userAge > 100) {
+      showModal("This too old user couldn't be registered!");
     } else {
       addUser(userName, userAge).then(user => {
-        showModal(`User "${userName}" has been added! User's ID: "${user._id}"`);
+        showModal(
+          `User "${userName}" has been added! User's ID: "${user._id}"`
+        );
 
         return user;
       });
@@ -213,25 +215,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     inputNameAdd.value = "";
     inputAgeAdd.value = "";
-  }
+  };
 
-  // ============================= DELETE USER ==========================  
+  // ============================= DELETE USER ==========================
   const removeUser = id => {
     const url = `https://test-users-api.herokuapp.com/users/${id}`;
 
     return fetch(url, {
-        method: 'DELETE',
+        method: "DELETE"
       })
       .then(response => {
         if (response.ok) return response.json();
 
-        throw new Error('Error' + response.statusText);
+        throw new Error("Error" + response.statusText);
       })
       .then(data => data.data)
       .catch(error => {
         console.log(error);
-      })
-  }
+      });
+  };
 
   const handleDelUserSubmit = event => {
     event.preventDefault();
@@ -252,7 +254,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     inputIdDel.value = "";
-  }
+
+    const userCardsGotById = columnOne.querySelectorAll('table[data-id]');
+    const allGotUserCards = columnTwo.querySelectorAll('table[data-id]');
+
+    userCardsGotById.forEach(userCard => {
+      if (userCard.dataset.id === userId) {
+        userCard.remove();
+
+        allGotUserCards.forEach(userCard => {
+          if (userCard.dataset.id === userId) {
+            userCard.remove();
+          }
+        });
+      }
+    });
+  };
 
   // ============================ UPDATE USER =============================
 
@@ -261,29 +278,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const userToUpdate = {
       name,
-      age,
+      age
     };
 
     const options = {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
+        Accept: "application/json",
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify(userToUpdate),
+      body: JSON.stringify(userToUpdate)
     };
 
     return fetch(url, options)
       .then(response => {
         if (response.ok) return response.json();
 
-        throw new Error('Error' + response.statusText);
+        throw new Error("Error" + response.statusText);
       })
       .then(data => data.data)
       .catch(error => {
         console.log(error);
-      })
-  }
+      });
+  };
 
   const handleUpdateUserSubmit = event => {
     event.preventDefault();
@@ -309,11 +326,11 @@ document.addEventListener('DOMContentLoaded', () => {
     inputIdUpdate.value = "";
     inputNameUpdate.value = "";
     inputAgeUpdate.value = "";
-  }
+  };
 
-  btnGetUsers.addEventListener('click', handleGetUsersSubmit);
-  btnGetUser.addEventListener('click', handleGetUserSubmit);
-  btnAddUser.addEventListener('click', handleAddUserSubmit);
-  btnDelUser.addEventListener('click', handleDelUserSubmit);
-  btnUpdateUser.addEventListener('click', handleUpdateUserSubmit);
-})
+  btnGetUsers.addEventListener("click", handleGetUsersSubmit);
+  btnGetUser.addEventListener("click", handleGetUserSubmit);
+  btnAddUser.addEventListener("click", handleAddUserSubmit);
+  btnDelUser.addEventListener("click", handleDelUserSubmit);
+  btnUpdateUser.addEventListener("click", handleUpdateUserSubmit);
+});

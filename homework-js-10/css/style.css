@@ -25,11 +25,11 @@
   align-items: center;
   min-height: 261px;
   padding: 0.6rem 0.4rem;
+  margin-bottom: 0.4rem;
 }
 
 .panel img {
   width: 128px;
-  flex-grow: 1;
 }
 
 table {
@@ -42,8 +42,8 @@ table th {
 
 .preloader-wrapper {
   position: fixed;
-  top: 50%;
-  left: 25%;
+  top: 75%;
+  left: 33%;
 }
 
 .modal {
