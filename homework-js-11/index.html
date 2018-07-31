@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Homework_11_JS</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <form action="#" class="form js-form">
+                    <h6>Screen size</h6>
+                    <p>
+                        <label>
+                            <input type="checkbox" name="size" value="13" />
+                            <span>13"</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input type="checkbox" name="size" value="15" />
+                            <span>15"</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input type="checkbox" name="size" value="17" />
+                            <span>17"</span>
+                        </label>
+                    </p>
+                    <h6>Color</h6>
+                    <p>
+                        <label>
+                            <input type="checkbox" name="color" value="white" />
+                            <span>white</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input type="checkbox" name="color" value="gray" />
+                            <span>gray</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input type="checkbox" name="color" value="black" />
+                            <span>black</span>
+                        </label>
+                    </p>
+                    <h6>Release date</h6>
+                    <p>
+                        <label>
+                            <input type="checkbox" name="release_date" value="2015" />
+                            <span>2015</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input type="checkbox" name="release_date" value="2016" />
+                            <span>2016</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input type="checkbox" name="release_date" value="2017" />
+                            <span>2017</span>
+                        </label>
+                    </p>
+                    <div class="btn-actions">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Filter
+                            <i class="material-icons right">send</i>
+                        </button>
+                        <button class="btn waves-effect waves-light js-btn-reset" type="reset">
+                            <i class="material-icons right">cloud</i>Clear
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row js-row-laptops"></div>
+
+        <template id="laptop-card">
+            <div class="col s12 m6 l4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{img}}">
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">{{name}}</h2>
+                        <p class="size">Size: {{size}}</p>
+                        <p class="color">Color: {{color}}</p>
+                        <p class="release_date">Release date: {{release_date}}</p>
+                        <p class="descr">Description: {{descr}}</p>
+                    </div>
+                    <div class="card-action">
+                        <p class="price">Price: {{price}}$</p>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

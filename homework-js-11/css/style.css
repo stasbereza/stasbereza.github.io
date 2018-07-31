@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 112px;
+}
+
+.btn-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 80px;
+  margin-top: 8px;
+}
